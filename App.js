@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
 import createSagaMiddleware from 'redux-saga'
 import storage from 'redux-persist/lib/storage'
-import {applyMiddleware, createStore} from "redux";
+import {applyMiddleware, createStore} from "redux"
 import {persistReducer, persistStore} from 'redux-persist'
-import {Provider} from "react-redux";
+import {Provider} from "react-redux"
 import {PersistGate} from 'redux-persist/integration/react'
-import rootReducer from "./src/reducers";
-import rootSaga from "./src/sagas";
-import RootContainer from "./src/Root/RootContainer.Screen";
+import rootReducer from "./src/reducers"
+import rootSaga from "./src/sagas"
+import RootContainer from "./src/Root/RootContainer.Screen"
+import codePush from "react-native-code-push"
 
 const sagaMiddleware = createSagaMiddleware()
 const persistConfig = {
@@ -22,7 +23,7 @@ const persistor = persistStore(store)
 
 sagaMiddleware.run(rootSaga)
 
-export default class App extends Component {
+class App extends Component {
     render() {
         return (
             <Provider store={store}>
@@ -30,6 +31,8 @@ export default class App extends Component {
                     <RootContainer/>
                 </PersistGate>
             </Provider>
-        );
+        )
     }
 }
+
+export default codePush(App)
