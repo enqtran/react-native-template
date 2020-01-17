@@ -7,7 +7,7 @@ import NoDataView from "../Components/NoDataView";
 
 class UserScreen extends Component {
     static navigationOptions = {
-        headerTitle: <Text style={styles.titleHeader}>User</Text>
+        headerTitle: <Text style={styles.titleHeader}>đạt</Text>
     }
 
     constructor(props) {
